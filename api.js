@@ -4,10 +4,10 @@ var port = 7600;
 var bodparser = require('body-parser');
 var mongo = require('mongodb');
 var MongoClient = mongo.MongoClient
+var mongourl ="mongodb://localhost:27017";
 var cors =  require('cors');
 const { query } = require('express');
 var db;
-var mongourl ="mongodb+srv://heena:HeeNaJAinN@cluster0.kjkpg.mongodb.net/assgn6?retryWrites=true&w=majority";
 
 
 
@@ -111,7 +111,7 @@ app.get('/restuarantlist/:mealtype',function(req,res){
     
 MongoClient.connect(mongourl,function(err,connection){
     if(err) throw err;
-    db = connection.db('assgn6');
+    db = connection.db('assign6');
     app.listen(7600,function(err){
         if (err) throw err;
         console.log('server is running on port  7600')
